@@ -4,6 +4,8 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Navbar from "@/components/navbar";
 import { Suspense } from "react";
+import Footer from "@/components/footer";
+import { Loader2 } from "lucide-react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,10 +38,18 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense
+            fallback={
+              <div className="flex items-center justify-start space-x-1">
+                <Loader2 size={16} className="animate-spin" />
+                <p>Loading...</p>
+              </div>
+            }
+          >
             <Navbar />
           </Suspense>
           {children}
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

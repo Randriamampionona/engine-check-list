@@ -4,7 +4,7 @@ import SearchForm from "@/components/search-form";
 export default function Home() {
   return (
     <main className="flex md:items-center justify-center h-full w-full">
-      <div className="max-w-3xl mx-auto p-6 mt-24 md:mt-0 text-center">
+      <div className="max-w-3xl mx-auto p-6 mt-16 md:mt-0 text-center">
         <Heading />
 
         <p className="text-gray-700 text-lg max-w-xl mx-auto">

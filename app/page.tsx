@@ -3,7 +3,7 @@ import SearchForm from "@/components/search-form";
 
 export default function Home() {
   return (
-    <main className="flex items-center justify-center min-h-dvh w-full">
+    <main className="flex items-center justify-center h-full w-full">
       <div className="max-w-3xl mx-auto p-6 text-center">
         <Heading />
 

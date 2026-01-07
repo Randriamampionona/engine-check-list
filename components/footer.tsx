@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="absolute bottom-0 w-full py-2 text-gray-400 text-sm flex items-center justify-center gap-2">
+    <footer className="w-full h-auto py-4 mt-12 bg-background text-gray-400 text-sm flex items-center justify-center gap-2 border-t border-gray-800">
       <p>
         &copy; {new Date().getFullYear()}{" "}
         <span className="font-semibold text-foreground">Check-eo</span>

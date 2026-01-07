@@ -27,7 +27,7 @@ export default async function ResultPage({ params, searchParams }: PageProps) {
   };
 
   return (
-    <main className="max-w-3xl mx-auto p-8 flex flex-col items-center">
+    <main className="max-w-3xl mx-auto p-8 flex flex-col items-center h-full w-full">
       {/* Page Header */}
       <header className="mb-12 text-center">
         <Heading />

@@ -6,6 +6,14 @@ import Navbar from "@/components/navbar";
 import { Suspense } from "react";
 import Footer from "@/components/footer";
 import { Loader2 } from "lucide-react";
+import {
+  ClerkProvider,
+  SignInButton,
+  SignUpButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from "@clerk/nextjs";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,30 +36,32 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased h-screen`}
-      >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
+    <ClerkProvider>
+      <html lang="en">
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased h-screen`}
         >
-          <Suspense
-            fallback={
-              <div className="flex items-center justify-start space-x-1">
-                <Loader2 size={16} className="animate-spin" />
-                <p>Loading...</p>
-              </div>
-            }
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
           >
-            <Navbar />
-          </Suspense>
-          {children}
-          <Footer />
-        </ThemeProvider>
-      </body>
-    </html>
+            <Suspense
+              fallback={
+                <div className="flex items-center justify-start space-x-1">
+                  <Loader2 size={16} className="animate-spin" />
+                  <p>Loading...</p>
+                </div>
+              }
+            >
+              <Navbar />
+            </Suspense>
+            {children}
+            <Footer />
+          </ThemeProvider>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

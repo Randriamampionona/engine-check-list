@@ -1,19 +1,20 @@
 "use client";
 
-import { ArrowLeft } from "lucide-react";
-import Link from "next/link";
-import { usePathname, useSearchParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
+import { usePathname, useSearchParams, useRouter } from "next/navigation";
+import { SignedIn, UserButton } from "@clerk/nextjs";
 
 const LANGS = [
   {
     code: "en",
-    label: "English",
+    label: "En",
     flag: String.fromCodePoint(0x1f1fa, 0x1f1f8),
   }, // 🇺🇸
   {
     code: "fr",
-    label: "Français",
+    label: "Fr",
     flag: String.fromCodePoint(0x1f1eb, 0x1f1f7),
   }, // 🇫🇷
 ];
@@ -65,21 +66,51 @@ export default function Navbar() {
         )}
       </div>
 
-      {/* Right – Language */}
-      <div className="flex items-center gap-2">
-        {LANGS.map((lang) => (
-          <button
-            key={lang.code}
-            onClick={() => changeLang(lang.code)}
-            className={`flex items-center gap-1 px-2 pb-1 rounded-md text-sm transition ${
-              currentLang === lang.code
-                ? "bg-teal-500/20 ring-1 ring-teal-400"
-                : "hover:bg-muted"
-            }`}
+      {/* Right – Community + Language */}
+      <div className="flex items-center gap-3">
+        <Link
+          href="/community"
+          className="relative inline-flex items-center gap-2 px-3 py-1.5 rounded-full
+      text-sm font-semibold text-teal-400
+      border border-teal-400/40
+      hover:bg-teal-500/10 hover:border-teal-400
+      transition-all duration-200"
+        >
+          <span className="relative z-10">Community</span>
+          <span className="absolute inset-0 rounded-full bg-teal-400/10 blur opacity-0 hover:opacity-100 transition-opacity" />
+        </Link>
+
+        {/* Language Select */}
+        <div className="relative">
+          <select
+            value={currentLang}
+            onChange={(e) => changeLang(e.target.value)}
+            className="
+        appearance-none cursor-pointer
+        bg-background text-sm font-medium
+        border border-border rounded-md
+        px-3 py-1.5 pr-8
+        hover:border-teal-400
+        focus:outline-none focus:ring-1 focus:ring-teal-400
+        transition
+      "
           >
-            <span className="text-lg emoji">{lang.flag}</span>
-          </button>
-        ))}
+            {LANGS.map((lang) => (
+              <option key={lang.code} value={lang.code}>
+                {lang.flag} {lang.label}
+              </option>
+            ))}
+          </select>
+
+          {/* Custom arrow */}
+          <span className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 text-muted-foreground">
+            ▾
+          </span>
+        </div>
+
+        <SignedIn>
+          <UserButton />
+        </SignedIn>
       </div>
     </nav>
   );

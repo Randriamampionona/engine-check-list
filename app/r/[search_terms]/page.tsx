@@ -1,4 +1,5 @@
 import { searchEngineFaults } from "@/action/get-search-engine-faults.action";
+import AdBanner from "@/components/ad-banner";
 import Heading from "@/components/heading";
 import { Lang } from "@/typing";
 
@@ -29,6 +30,7 @@ export default async function ResultPage({ params, searchParams }: PageProps) {
 
   return (
     <main className="max-w-3xl mx-auto p-8 flex flex-col items-center h-full w-full">
+      <AdBanner />
       {/* Page Header */}
       <header className="mb-12 text-center">
         <Heading />

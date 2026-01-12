@@ -1,9 +1,11 @@
+import AdBanner from "@/components/ad-banner";
 import Heading from "@/components/heading";
 import SearchForm from "@/components/search-form";
 
 export default function Home() {
   return (
     <main className="flex md:items-center justify-center h-full w-full">
+      <AdBanner />
       <div className="max-w-3xl mx-auto p-6 mt-16 md:mt-0 text-center">
         <Heading />
 

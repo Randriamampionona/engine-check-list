@@ -35,7 +35,7 @@ export default function AdBanner() {
   return (
     <div
       ref={adContainer}
-      className="flex justify-center my-4 min-h-12.5 w-full"
+      className="hidden justify-center my-4 min-h-12.5 w-full"
     />
   );
 }

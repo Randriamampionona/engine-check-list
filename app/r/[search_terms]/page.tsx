@@ -1,5 +1,6 @@
 import { searchEngineFaults } from "@/action/get-search-engine-faults.action";
 import Heading from "@/components/heading";
+import { Lang } from "@/typing";
 
 type PageProps = {
   params: Promise<{ search_terms: string }>;

@@ -1,3 +1,5 @@
+import { EngineFault } from "@/typing";
+
 export const ENGINE_FAULTS_LIST: EngineFault[] = [
   {
     Blinks: 1,

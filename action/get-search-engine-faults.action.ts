@@ -1,6 +1,7 @@
 "use server";
 
 import { ENGINE_FAULTS_LIST } from "@/app/data/engine-faults";
+import { EngineFault, Lang } from "@/typing";
 
 export async function searchEngineFaults(
   searchTerm: string,

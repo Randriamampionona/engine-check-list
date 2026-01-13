@@ -28,6 +28,12 @@ export default function Navbar() {
   // Start with undefined to avoid SSR localStorage access
   const [currentLang, setCurrentLang] = useState<string | null>(null);
 
+  const showNewBadge = (() => {
+    const today = new Date();
+    const expiry = new Date("2026-02-28T23:59:59"); // Feb 28 end of day
+    return today <= expiry;
+  })();
+
   useEffect(() => {
     const paramLang = searchParams.get("lang");
     if (paramLang) {
@@ -71,12 +77,31 @@ export default function Navbar() {
         <Link
           href="/community"
           className="relative inline-flex items-center gap-2 px-3 py-1.5 rounded-full
-      text-sm font-semibold text-teal-400
-      border border-teal-400/40
-      hover:bg-teal-500/10 hover:border-teal-400
-      transition-all duration-200"
+    text-sm font-semibold text-teal-400
+    border border-teal-400/40
+    hover:bg-teal-500/10 hover:border-teal-400
+    transition-all duration-200"
         >
           <span className="relative z-10">Community</span>
+
+          {/* Floating NEW badge */}
+          {showNewBadge && (
+            <span
+              className="
+        absolute -top-2 -right-2 z-20
+        rounded-full
+        bg-linear-to-r from-pink-500 to-orange-400
+        px-2 py-0.5
+        text-[9px] font-bold uppercase tracking-wider text-white
+        shadow-md
+        ring-2 ring-background
+        animate-pulse
+      "
+            >
+              New
+            </span>
+          )}
+
           <span className="absolute inset-0 rounded-full bg-teal-400/10 blur opacity-0 hover:opacity-100 transition-opacity" />
         </Link>
 

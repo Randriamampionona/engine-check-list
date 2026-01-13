@@ -14,6 +14,7 @@ import {
   SignedOut,
   UserButton,
 } from "@clerk/nextjs";
+import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -41,6 +42,10 @@ export default function RootLayout({
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased h-screen`}
         >
+          <Script
+            src="https://pl28463199.effectivegatecpm.com/73/ff/35/73ff3588738e1da2e46ad52af0594211.js"
+            strategy="afterInteractive"
+          />
           <ThemeProvider
             attribute="class"
             defaultTheme="system"

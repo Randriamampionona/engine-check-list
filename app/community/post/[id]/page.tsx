@@ -1,4 +1,3 @@
-import AdBanner from "@/components/ad-banner";
 import SinglePost from "@/components/community/single-post";
 
 type Props = {
@@ -10,7 +9,6 @@ export default async function PostPage({ params }: Props) {
 
   return (
     <main className="mx-auto w-full min-h-full max-w-3xl px-4 py-10 space-y-8 mt-16">
-      <AdBanner />
       {/* Individual post */}
       <SinglePost postId={postId} />
     </main>

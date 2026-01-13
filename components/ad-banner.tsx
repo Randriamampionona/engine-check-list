@@ -15,7 +15,7 @@ export default function AdBanner() {
 
       config.innerHTML = `
         atOptions = {
-            'key' : '',
+            'key' : '${AD_KEY}',
             'format' : 'iframe',
             'height' : 90,
             'width' : 728,
@@ -35,7 +35,9 @@ export default function AdBanner() {
   return (
     <div
       ref={adContainer}
-      className="hidden justify-center my-4 min-h-12.5 w-full"
-    />
+      className="flex items-center justify-center mt-12 min-h-12.5 w-full"
+    >
+      <i className="text-muted-foreground opacity-20 text-xs">Ad here</i>
+    </div>
   );
 }

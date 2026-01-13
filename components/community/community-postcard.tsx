@@ -1,11 +1,15 @@
 "use client";
 
 import { addReplyToPost } from "@/action/add-reply-to-post.action";
+import { deleteCommunityPost } from "@/action/delete-community-post.action";
 import { cn } from "@/lib/utils";
 import { CommunityPost } from "@/typing";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { useUser } from "@clerk/nextjs";
+import { Trash2 } from "lucide-react";
 
 type CommunityPostCardProps = {
   post: CommunityPost;
@@ -16,14 +20,19 @@ export default function CommunityPostCard({
   post,
   isOnSinglePostPage = false,
 }: CommunityPostCardProps) {
+  const { user } = useUser();
+  const router = useRouter();
+
+  const isOwner = user?.id === post.owner.id;
+
   const [showReplyForm, setShowReplyForm] = useState(false);
   const [replyContent, setReplyContent] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
 
   const handleReplyToggle = () => setShowReplyForm((prev) => !prev);
 
   const handleReplySubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
     if (!replyContent.trim()) return;
 
     try {
@@ -36,7 +45,29 @@ export default function CommunityPostCard({
       setShowReplyForm(false);
     } catch (error) {
       console.error("Failed to submit reply:", error);
-      // optional: show toast / error UI
+    }
+  };
+
+  // 🗑️ Delete handler
+  const handleDeletePost = async () => {
+    const confirmed = window.confirm(
+      "Are you sure you want to delete this post?\nThis action cannot be undone."
+    );
+
+    if (!confirmed) return;
+
+    try {
+      setIsDeleting(true);
+      await deleteCommunityPost({ postId: post.id });
+
+      // Redirect safely
+      router.push("/community");
+      router.refresh();
+    } catch (error) {
+      console.error("Failed to delete post:", error);
+      alert("Failed to delete post. Please try again.");
+    } finally {
+      setIsDeleting(false);
     }
   };
 
@@ -48,26 +79,48 @@ export default function CommunityPostCard({
       )}
     >
       {/* Header */}
-      <div className="flex items-center gap-3 mb-3">
-        <div className="relative h-8 w-8 overflow-hidden rounded-full bg-muted">
-          {post.owner.avatarUrl && (
-            <Image
-              src={post.owner.avatarUrl}
-              alt={post.owner.name}
-              fill
-              className="object-cover"
-            />
-          )}
+      <div className="flex items-center justify-between mb-3">
+        <div className="flex items-center gap-3">
+          <div className="relative h-8 w-8 overflow-hidden rounded-full bg-muted">
+            {post.owner.avatarUrl && (
+              <Image
+                src={post.owner.avatarUrl}
+                alt={post.owner.name}
+                fill
+                className="object-cover"
+              />
+            )}
+          </div>
+
+          <div className="flex flex-col">
+            <span className="text-sm font-medium text-foreground">
+              {post.owner.name}
+            </span>
+            <span className="text-xs text-muted-foreground">
+              {post.createdAt?.toDate?.().toLocaleString() ?? "—"}
+            </span>
+          </div>
         </div>
 
-        <div className="flex flex-col">
-          <span className="text-sm font-medium text-foreground">
-            {post.owner.name}
-          </span>
-          <span className="text-xs text-muted-foreground">
-            {post.createdAt?.toDate?.().toLocaleString() ?? "—"}
-          </span>
-        </div>
+        {/* 🟢 PRO delete button (owner only) */}
+        {isOwner && (
+          <button
+            onClick={handleDeletePost}
+            disabled={isDeleting}
+            className="
+              inline-flex items-center gap-1
+              text-xs font-semibold
+              px-3 py-1.5 rounded-full
+              border border-red-500/30
+              text-red-500
+              hover:bg-red-500/10
+              transition
+            "
+          >
+            <Trash2 size={14} />
+            {isDeleting ? "Deleting..." : "Delete"}
+          </button>
+        )}
       </div>
 
       {/* Content */}
@@ -89,7 +142,7 @@ export default function CommunityPostCard({
           <button
             type="button"
             onClick={handleReplyToggle}
-            className="inline-flex items-center gap-1 rounded-full bg-teal-500/10 px-4 py-1.5 text-sm font-semibold text-teal-500 hover:bg-teal-500/20 hover:text-teal-600 transition"
+            className="inline-flex items-center gap-1 rounded-full bg-teal-500/10 px-4 py-1.5 text-sm font-semibold text-teal-500 hover:bg-teal-500/20 transition"
           >
             Reply
           </button>

@@ -6,15 +6,8 @@ import Navbar from "@/components/navbar";
 import { Suspense } from "react";
 import Footer from "@/components/footer";
 import { Loader2 } from "lucide-react";
-import {
-  ClerkProvider,
-  SignInButton,
-  SignUpButton,
-  SignedIn,
-  SignedOut,
-  UserButton,
-} from "@clerk/nextjs";
 import Script from "next/script";
+import { ClerkProvider } from "@clerk/nextjs";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,11 +17,12 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
   title: "Check-eo",
-  description: "Engiene maintenance checklist for your scooter",
+  description: "Engine maintenance checklist for your scooter",
 };
 
 export default function RootLayout({
@@ -42,10 +36,6 @@ export default function RootLayout({
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased h-screen`}
         >
-          <Script
-            src="https://pl28463199.effectivegatecpm.com/73/ff/35/73ff3588738e1da2e46ad52af0594211.js"
-            strategy="afterInteractive"
-          />
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
@@ -65,6 +55,14 @@ export default function RootLayout({
             {children}
             <Footer />
           </ThemeProvider>
+          {/* NEW SOCIAL BAR SCRIPT 
+             Strategy "afterInteractive" loads it after the page is usable, 
+             which is best for performance and Vercel safety.
+          */}
+          <Script
+            src="https://pl28463302.effectivegatecpm.com/7c/54/98/7c5498b040473b02235b36a5e30dd1ad.js"
+            strategy="afterInteractive"
+          />
         </body>
       </html>
     </ClerkProvider>

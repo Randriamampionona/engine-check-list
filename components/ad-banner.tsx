@@ -1,43 +1,31 @@
 "use client";
 import { useEffect, useRef } from "react";
+import Script from "next/script";
 
-export default function AdBanner() {
-  // 1. Tell TypeScript this is a Div element
-  const adContainer = useRef<HTMLDivElement>(null);
+export default function TopBanner() {
+  const bannerRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    // 2. Add the check to ensure adContainer.current exists
-    if (adContainer.current && !adContainer.current.firstChild) {
-      const script = document.createElement("script");
-      const config = document.createElement("script");
-
-      const AD_KEY = "63d93ff8d9831bf8f803dfad9f1653bf";
-
-      config.innerHTML = `
-        atOptions = {
-            'key' : '${AD_KEY}',
+  return (
+    <div className="flex justify-center my-4 min-h-22.5 w-full">
+      {/* 1. Define the config variable */}
+      <Script id="adsterra-banner-config" strategy="afterInteractive">
+        {`
+          window.atOptions = {
+            'key' : '63d93ff8d9831bf8f803dfad9f1653bf',
             'format' : 'iframe',
             'height' : 90,
             'width' : 728,
             'params' : {}
-        };
-      `;
+          };
+        `}
+      </Script>
 
-      script.type = "text/javascript";
-      script.src = `//www.highperformanceformat.com/${AD_KEY}/invoke.js`;
-
-      // These will now work because TypeScript knows it's a div
-      adContainer.current.append(config);
-      adContainer.current.append(script);
-    }
-  }, []);
-
-  return (
-    <div
-      ref={adContainer}
-      className="flex items-center justify-center mt-12 min-h-12.5 w-full"
-    >
-      <i className="text-muted-foreground opacity-20 text-xs">Ad here</i>
+      {/* 2. Load the actual ad script */}
+      <Script
+        id="adsterra-banner-invoke"
+        src="https://www.highperformanceformat.com/63d93ff8d9831bf8f803dfad9f1653bf/invoke.js"
+        strategy="afterInteractive"
+      />
     </div>
   );
 }

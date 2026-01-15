@@ -13,6 +13,7 @@ export async function createCommunityPost(
     id: ref.id,
     title: data.title,
     Details: data.Details,
+    Attachment: data.Attachment,
     owner: data.owner,
     reply: [],
     createdAt: Timestamp.now(),

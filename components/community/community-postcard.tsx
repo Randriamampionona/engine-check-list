@@ -28,6 +28,7 @@ export default function CommunityPostCard({
   const [showReplyForm, setShowReplyForm] = useState(false);
   const [replyContent, setReplyContent] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
+  const [showImageModal, setShowImageModal] = useState(false);
 
   const handleReplyToggle = () => setShowReplyForm((prev) => !prev);
 
@@ -134,6 +135,21 @@ export default function CommunityPostCard({
         </p>
       </div>
 
+      {/* Attachment CTA */}
+      {post.Attachment && (
+        <button
+          onClick={() => setShowImageModal(true)}
+          className="inline-flex items-center gap-2 mt-3
+      rounded-full border px-4 py-1.5
+      text-xs font-semibold
+      text-muted-foreground
+      hover:text-foreground hover:border-teal-500
+      transition"
+        >
+          📎 View attachment
+        </button>
+      )}
+
       {/* Footer */}
       <div className="mt-4 flex items-center justify-between text-xs text-muted-foreground">
         <span>{post.reply?.length ?? 0} replies</span>
@@ -181,6 +197,48 @@ export default function CommunityPostCard({
             </button>
           </div>
         </form>
+      )}
+      {/* Image Modal */}
+      {showImageModal && post.Attachment && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center
+      bg-black/60 backdrop-blur-sm"
+          onClick={() => setShowImageModal(false)}
+        >
+          <div
+            className="relative max-w-[90vw] max-h-[90vh]"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close button */}
+            <button
+              onClick={() => setShowImageModal(false)}
+              className="absolute -top-4 -right-4 z-50
+          flex h-9 w-9 items-center justify-center
+          rounded-full bg-white text-black
+          shadow-lg hover:scale-105 transition"
+              aria-label="Close image"
+            >
+              ✕
+            </button>
+
+            {/* Image container */}
+            <div className="relative overflow-hidden rounded-2xl bg-black shadow-2xl">
+              <Image
+                src={post.Attachment}
+                alt="Post attachment"
+                width={1600}
+                height={1600}
+                className="
+            max-h-[85vh]
+            max-w-[85vw]
+            object-contain
+            w-auto
+            h-auto
+          "
+              />
+            </div>
+          </div>
+        </div>
       )}
     </article>
   );

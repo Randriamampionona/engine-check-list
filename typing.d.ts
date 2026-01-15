@@ -14,6 +14,7 @@ type CommunityPost = {
   id: string;
   title: string;
   Details: string;
+  Attachment?: string;
   owner: {
     id: string;
     name: string;

@@ -55,10 +55,6 @@ export default function RootLayout({
             {children}
             <Footer />
           </ThemeProvider>
-          {/* NEW SOCIAL BAR SCRIPT 
-             Strategy "afterInteractive" loads it after the page is usable, 
-             which is best for performance and Vercel safety.
-          */}
           <Script
             src="https://pl28463302.effectivegatecpm.com/7c/54/98/7c5498b040473b02235b36a5e30dd1ad.js"
             strategy="afterInteractive"

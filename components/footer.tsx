@@ -1,9 +1,6 @@
-import AdBanner from "./ad-banner";
-
 export default function Footer() {
   return (
     <>
-      <AdBanner />
       <footer className="w-full h-auto py-4 bg-background text-gray-400 text-sm flex items-center justify-center gap-2 border-t border-gray-800">
         <p>
           &copy; {new Date().getFullYear()}{" "}

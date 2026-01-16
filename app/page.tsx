@@ -1,4 +1,5 @@
 import Heading from "@/components/heading";
+import NativeBanner from "@/components/native-banner";
 import SearchForm from "@/components/search-form";
 
 export default function Home() {
@@ -14,6 +15,8 @@ export default function Home() {
 
         <SearchForm />
       </div>
+      {/* BEST PLACEMENT: Right after the tool ends */}
+      <NativeBanner />
     </main>
   );
 }

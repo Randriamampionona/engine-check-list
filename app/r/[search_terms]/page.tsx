@@ -1,5 +1,6 @@
 import { searchEngineFaults } from "@/action/get-search-engine-faults.action";
 import Heading from "@/components/heading";
+import NativeBanner from "@/components/native-banner";
 import { Lang } from "@/typing";
 
 type PageProps = {
@@ -88,6 +89,8 @@ export default async function ResultPage({ params, searchParams }: PageProps) {
           <div className="absolute inset-0 rounded-2xl shadow-[0_0_60px_#00fff3] opacity-10 pointer-events-none"></div>
         </div>
       )}
+      {/* BEST PLACEMENT: Right after the tool ends */}
+      <NativeBanner />
     </main>
   );
 }

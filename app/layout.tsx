@@ -8,6 +8,7 @@ import Footer from "@/components/footer";
 import { Loader2 } from "lucide-react";
 import Script from "next/script";
 import { ClerkProvider } from "@clerk/nextjs";
+import FloatingAdCTA from "@/components/floating-ad-cta";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -54,6 +55,7 @@ export default function RootLayout({
             </Suspense>
             {children}
             <Footer />
+            <FloatingAdCTA />
           </ThemeProvider>
           <Script
             src="https://pl28463302.effectivegatecpm.com/7c/54/98/7c5498b040473b02235b36a5e30dd1ad.js"

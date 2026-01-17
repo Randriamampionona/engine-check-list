@@ -1,4 +1,5 @@
 import { searchEngineFaults } from "@/action/get-search-engine-faults.action";
+import NativeBar from "@/components/ad/native-bar";
 import Heading from "@/components/heading";
 import { Lang } from "@/typing";
 
@@ -28,7 +29,7 @@ export default async function ResultPage({ params, searchParams }: PageProps) {
   };
 
   return (
-    <main className="max-w-3xl mx-auto p-8 flex flex-col items-center h-full w-full">
+    <main className="max-w-3xl mx-auto p-8 flex flex-col items-center min-h-full w-full">
       {/* Page Header */}
       <header className="mb-12 text-center">
         <Heading />
@@ -49,7 +50,7 @@ export default async function ResultPage({ params, searchParams }: PageProps) {
           {/* Priority Badge */}
           <span
             className={`absolute top-4 right-4 px-3 py-1 rounded-full font-semibold text-sm ${priorityColor(
-              fault.Priority
+              fault.Priority,
             )}`}
           >
             Priority {fault.Priority}
@@ -88,6 +89,8 @@ export default async function ResultPage({ params, searchParams }: PageProps) {
           <div className="absolute inset-0 rounded-2xl shadow-[0_0_60px_#00fff3] opacity-10 pointer-events-none"></div>
         </div>
       )}
+
+      <NativeBar />
     </main>
   );
 }

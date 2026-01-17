@@ -3,10 +3,11 @@
 import Link from "next/link";
 import { Sparkles } from "lucide-react";
 import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 export default function FloatingAdCTA() {
   const pathname = usePathname();
+  const router = useRouter();
   if (pathname === "/ad") return null;
 
   const URLS = [
@@ -23,7 +24,7 @@ export default function FloatingAdCTA() {
 
   const handleClick = () => {
     sessionStorage.setItem("floating-ad-clicked", "true");
-    setTimeout(() => window.location.reload(), 100);
+    setTimeout(() => router.push("/ad"), 100);
   };
 
   if (!href) return null;

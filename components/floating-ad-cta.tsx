@@ -11,19 +11,51 @@ export default function FloatingAdCTA() {
   if (pathname === "/ad") return null;
 
   const URLS = [
-    "https://www.effectivegatecpm.com/ggeh3sa5?key=163056f5f663a5f45431a95f611c1bf4",
-    "/ad",
+    "https://www.effectivegatecpm.com/ggeh3sa5?key=163056f5f663a5f45431a95f611c1bf4", // first click
+    "/ad", // subsequent clicks
   ];
+
+  const RESET_AFTER_MS = 10 * 1000; // 10 seconds
+  const SESSION_KEY = "floating-ad-clicked";
+  const TIMESTAMP_KEY = "floating-ad-clicked-time";
 
   const [href, setHref] = useState<string | null>(null);
 
-  useEffect(() => {
-    const clicked = sessionStorage.getItem("floating-ad-clicked");
+  // Function to check session and update href
+  const updateHref = () => {
+    const timestamp = sessionStorage.getItem(TIMESTAMP_KEY);
+    const clicked = sessionStorage.getItem(SESSION_KEY);
+
+    // Reset session if timestamp is too old
+    if (timestamp) {
+      const age = Date.now() - parseInt(timestamp, 10);
+      if (age > RESET_AFTER_MS) {
+        sessionStorage.removeItem(SESSION_KEY);
+        sessionStorage.removeItem(TIMESTAMP_KEY);
+        setHref(URLS[0]); // re-enable first URL
+        return;
+      }
+    }
+
+    // Default logic
     setHref(clicked ? URLS[1] : URLS[0]);
+  };
+
+  useEffect(() => {
+    updateHref(); // initial check
+
+    // Check every second if the first URL should come back
+    const interval = setInterval(updateHref, 1000);
+
+    return () => clearInterval(interval);
   }, []);
 
   const handleClick = () => {
-    sessionStorage.setItem("floating-ad-clicked", "true");
+    // Mark clicked and store timestamp
+    sessionStorage.setItem(SESSION_KEY, "true");
+    sessionStorage.setItem(TIMESTAMP_KEY, Date.now().toString());
+
+    // Navigate to /ad after opening external ad
     setTimeout(() => router.push("/ad"), 100);
   };
 

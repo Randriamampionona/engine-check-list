@@ -23,18 +23,22 @@ export default function FloatingAdCTA() {
 
   const handleClick = () => {
     sessionStorage.setItem("floating-ad-clicked", "true");
+    setTimeout(() => window.location.reload(), 100);
   };
 
   if (!href) return null;
+
+  const isExternal = href.startsWith("http");
 
   return (
     <Link
       href={href}
       onClick={handleClick}
+      target={isExternal ? "_blank" : undefined}
+      rel={isExternal ? "noopener noreferrer" : undefined}
       className="
         fixed bottom-5 right-5 z-50
-        group
-        flex items-center gap-2
+        group flex items-center gap-2
         rounded-full
         bg-linear-to-br from-teal-500 to-emerald-500
         px-4 py-2.5

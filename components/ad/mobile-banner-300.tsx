@@ -35,7 +35,7 @@ export default function MobileBanner300() {
   }, []);
 
   return (
-    <div className="md:hidden w-full flex flex-col items-center mb-4 border border-border/40 rounded overflow-hidden">
+    <div className="md:hidden w-full flex flex-col items-center mb-4 py-4 border border-border/40 rounded overflow-hidden">
       <div
         id="hilltop-target"
         ref={adBoxRef}

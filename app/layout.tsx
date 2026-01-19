@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next"; // Added Viewport type
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -22,9 +22,27 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
+// 1. Updated Metadata for PWA
 export const metadata: Metadata = {
   title: "Check-eo",
   description: "Engine maintenance checklist for your scooter",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "Check-eo",
+  },
+  formatDetection: {
+    telephone: false,
+  },
+};
+
+// 2. New Viewport export (Modern Next.js way)
+export const viewport: Viewport = {
+  themeColor: "#000000",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
 };
 
 export default function RootLayout({
@@ -34,13 +52,16 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang="en">
+      <html lang="en" suppressHydrationWarning>
+        {" "}
+        {/* Added suppressHydrationWarning for ThemeProvider */}
         <head>
           <meta
             name="17d67f7b11184bf7b75fbc46af746693b82f75bb"
             content="17d67f7b11184bf7b75fbc46af746693b82f75bb"
           />
           <meta name="referrer" content="no-referrer-when-downgrade" />
+          {/* Manifest is automatically linked if you created app/manifest.ts */}
         </head>
         <body
           className={`${geistSans.variable} ${geistMono.variable} ok antialiased h-screen`}

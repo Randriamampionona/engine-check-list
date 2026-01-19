@@ -4,6 +4,7 @@ import Heading from "@/components/heading";
 import SearchForm from "@/components/search-form";
 import DownloadAppButton from "@/components/download-app-button";
 import Link from "next/link";
+import DownloadAppLink from "@/components/download-app-link";
 
 export default function Home() {
   return (
@@ -18,19 +19,7 @@ export default function Home() {
           </p>
 
           {/* 🔥 Modern App CTA */}
-          <div className="mt-5 flex justify-center">
-            <Link
-              href="/appli"
-              className="
-                group text-sm font-semibold text-teal-600
-                hover:text-teal-700 transition
-                underline underline-offset-4 decoration-teal-300/40
-                hover:decoration-teal-500
-              "
-            >
-              Get the mobile app →
-            </Link>
-          </div>
+          <DownloadAppLink />
 
           <SearchForm />
         </div>

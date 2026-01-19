@@ -1,3 +1,4 @@
+import MobileBanner300 from "@/components/ad/mobile-banner-300";
 import NativeBar from "@/components/ad/native-bar";
 
 export default async function AdPage({
@@ -33,6 +34,7 @@ export default async function AdPage({
       {/* Ad container */}
       <div className="w-full max-w-xl">
         <NativeBar />
+        <MobileBanner300 />
       </div>
 
       {/* Footer note */}

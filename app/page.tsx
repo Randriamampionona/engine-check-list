@@ -1,3 +1,4 @@
+import MobileBanner300 from "@/components/ad/mobile-banner-300";
 import NativeBar from "@/components/ad/native-bar";
 import Heading from "@/components/heading";
 import SearchForm from "@/components/search-form";
@@ -18,6 +19,7 @@ export default function Home() {
         </div>
       </main>
       <NativeBar />
+      <MobileBanner300 />
     </>
   );
 }

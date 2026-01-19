@@ -34,6 +34,13 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
+        <head>
+          <meta
+            name="17d67f7b11184bf7b75fbc46af746693b82f75bb"
+            content="17d67f7b11184bf7b75fbc46af746693b82f75bb"
+          />
+          <meta name="referrer" content="no-referrer-when-downgrade" />
+        </head>
         <body
           className={`${geistSans.variable} ${geistMono.variable} ok antialiased h-screen`}
         >

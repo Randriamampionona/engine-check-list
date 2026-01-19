@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   description: "Engine maintenance checklist for your scooter",
   appleWebApp: {
     capable: true,
-    statusBarStyle: "default",
+    statusBarStyle: "black-translucent",
     title: "Check-eo",
   },
   formatDetection: {

@@ -6,6 +6,7 @@ export default function manifest(): MetadataRoute.Manifest {
     short_name: "CheckEO",
     description: "Engine maintenance checklist for your scooter",
     start_url: "/",
+    scope: "/",
     display: "standalone",
     background_color: "#000000",
     theme_color: "#000000",

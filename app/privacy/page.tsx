@@ -1,3 +1,7 @@
+import AadsAdaptive from "@/components/ad/aads-adaptive";
+import AdsterraNativeBar from "@/components/ad/adsterra-native-bar";
+import HilltopadsMobileBanner300 from "@/components/ad/hilltop-mobile-banner-300";
+
 export default function PrivacyPolicyPage() {
   return (
     <main className="max-w-4xl mx-auto px-6 py-16 space-y-12">
@@ -190,6 +194,9 @@ export default function PrivacyPolicyPage() {
           📧 tojorandria474@gmail.com
         </p>
       </section>
+      <AdsterraNativeBar />
+      <AadsAdaptive />
+      <HilltopadsMobileBanner300 />
     </main>
   );
 }

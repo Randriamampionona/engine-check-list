@@ -3,6 +3,7 @@ import { Smartphone, Download } from "lucide-react";
 import DownloadAppButton from "@/components/download-app-button";
 import AdsterraNativeBar from "@/components/ad/adsterra-native-bar";
 import HilltopadsMobileBanner300 from "@/components/ad/hilltop-mobile-banner-300";
+import AadsAdaptive from "@/components/ad/aads-adaptive";
 
 export default function AppliPage() {
   return (
@@ -42,6 +43,7 @@ export default function AppliPage() {
       </div>
 
       <AdsterraNativeBar />
+      <AadsAdaptive />
       <HilltopadsMobileBanner300 />
     </main>
   );

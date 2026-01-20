@@ -1,5 +1,6 @@
 import HilltopadsMobileBanner300 from "@/components/ad/hilltop-mobile-banner-300";
 import AdsterraNativeBar from "@/components/ad/adsterra-native-bar";
+import AadsAdaptive from "@/components/ad/aads-adaptive";
 
 export default async function AdPage({
   searchParams,
@@ -34,6 +35,7 @@ export default async function AdPage({
       {/* Ad container */}
       <div className="w-full max-w-xl">
         <AdsterraNativeBar />
+        <AadsAdaptive />
         <HilltopadsMobileBanner300 />
       </div>
 

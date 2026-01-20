@@ -2,6 +2,7 @@ import HilltopadsMobileBanner300 from "@/components/ad/hilltop-mobile-banner-300
 import AdsterraNativeBar from "@/components/ad/adsterra-native-bar";
 import CommunityFeed from "@/components/community/community-feed";
 import CreatePostCTA from "@/components/community/create-post-CTA";
+import AadsAdaptive from "@/components/ad/aads-adaptive";
 
 export default function CommunityPage() {
   return (
@@ -10,6 +11,7 @@ export default function CommunityPage() {
         <CreatePostCTA />
         <CommunityFeed />
         <AdsterraNativeBar />
+        <AadsAdaptive />
         <HilltopadsMobileBanner300 />
       </main>
     </>

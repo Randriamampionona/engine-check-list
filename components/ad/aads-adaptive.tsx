@@ -2,7 +2,7 @@
 
 export default function AadsAdaptive() {
   return (
-    <div className="w-full flex flex-col items-center my-8 px-4 bg-secondary/5 rounded-lg overflow-hidden">
+    <div className="w-full flex flex-col items-center my-8 px-4 bg-secondary/5 rounded-lg border border-border/40 overflow-hidden">
       <div className="w-full max-w-182 aspect-auto min-h-12.5">
         <iframe
           data-aa="2424870"

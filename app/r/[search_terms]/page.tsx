@@ -3,6 +3,7 @@ import HilltopadsMobileBanner300 from "@/components/ad/hilltop-mobile-banner-300
 import AdsterraNativeBar from "@/components/ad/adsterra-native-bar";
 import Heading from "@/components/heading";
 import { Lang } from "@/typing";
+import AadsAdaptive from "@/components/ad/aads-adaptive";
 
 type PageProps = {
   params: Promise<{ search_terms: string }>;
@@ -92,6 +93,7 @@ export default async function ResultPage({ params, searchParams }: PageProps) {
       )}
 
       <AdsterraNativeBar />
+      <AadsAdaptive />
       <HilltopadsMobileBanner300 />
     </main>
   );

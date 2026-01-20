@@ -36,16 +36,12 @@ export default function HilltopadsMobileBanner300() {
 
   return (
     /* md:hidden ensures this whole block is removed on desktop */
-    <div className="md:hidden w-full flex flex-col items-center my-6">
-      <span className="text-[10px] text-muted-foreground uppercase tracking-widest mb-2">
-        Sponsored
-      </span>
-
+    <div className="md:hidden w-full flex flex-col items-center bg-secondary/5 border border-border/40 rounded shadow-sm overflow-hidden">
       <div
         id="hilltop-banner-300"
         ref={adBoxRef}
         /* w-[300px] h-[100px] ensures the box is exactly the ad size to prevent layout shifts */
-        className="relative w-75 h-25 bg-secondary/5 border border-border/40 rounded shadow-sm flex items-center justify-center overflow-hidden"
+        className="relative w-75 h-25 flex items-center justify-center"
       >
         {/* The ad will be injected here by the script */}
       </div>

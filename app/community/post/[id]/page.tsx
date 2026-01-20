@@ -1,6 +1,7 @@
 import HilltopadsMobileBanner300 from "@/components/ad/hilltop-mobile-banner-300";
 import AdsterraNativeBar from "@/components/ad/adsterra-native-bar";
 import SinglePost from "@/components/community/single-post";
+import AadsAdaptive from "@/components/ad/aads-adaptive";
 
 type Props = {
   params: Promise<{ id: string }>;
@@ -14,6 +15,7 @@ export default async function PostPage({ params }: Props) {
       {/* Individual post */}
       <SinglePost postId={postId} />
       <AdsterraNativeBar />
+      <AadsAdaptive />
       <HilltopadsMobileBanner300 />
     </main>
   );

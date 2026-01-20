@@ -9,7 +9,7 @@ import { Loader2 } from "lucide-react";
 import Script from "next/script";
 import { ClerkProvider } from "@clerk/nextjs";
 import FloatingAdCTA from "@/components/floating-ad-cta";
-import InPagePush from "@/components/ad/in-page-push";
+import HilltopadsInPagePush from "@/components/ad/hilltop-in-page-push";
 import AdsterraSocialBar from "@/components/ad/adsterra-social-bar";
 
 const geistSans = Geist({
@@ -89,7 +89,7 @@ export default function RootLayout({
           </ThemeProvider>
 
           <AdsterraSocialBar />
-          <InPagePush />
+          <HilltopadsInPagePush />
         </body>
       </html>
     </ClerkProvider>

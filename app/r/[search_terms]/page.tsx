@@ -1,5 +1,5 @@
 import { searchEngineFaults } from "@/action/get-search-engine-faults.action";
-import MobileBanner300 from "@/components/ad/mobile-banner-300";
+import HilltopadsMobileBanner300 from "@/components/ad/hilltop-mobile-banner-300";
 import AdsterraNativeBar from "@/components/ad/adsterra-native-bar";
 import Heading from "@/components/heading";
 import { Lang } from "@/typing";
@@ -92,7 +92,7 @@ export default async function ResultPage({ params, searchParams }: PageProps) {
       )}
 
       <AdsterraNativeBar />
-      <MobileBanner300 />
+      <HilltopadsMobileBanner300 />
     </main>
   );
 }

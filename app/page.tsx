@@ -1,4 +1,4 @@
-import MobileBanner300 from "@/components/ad/mobile-banner-300";
+import HilltopadsMobileBanner300 from "@/components/ad/hilltop-mobile-banner-300";
 import AdsterraNativeBar from "@/components/ad/adsterra-native-bar";
 import Heading from "@/components/heading";
 import SearchForm from "@/components/search-form";
@@ -28,7 +28,7 @@ export default function Home() {
 
       <AdsterraNativeBar />
       <AadsAdaptive />
-      <MobileBanner300 />
+      <HilltopadsMobileBanner300 />
     </>
   );
 }

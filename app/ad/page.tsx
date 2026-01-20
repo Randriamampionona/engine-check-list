@@ -1,4 +1,4 @@
-import MobileBanner300 from "@/components/ad/mobile-banner-300";
+import HilltopadsMobileBanner300 from "@/components/ad/hilltop-mobile-banner-300";
 import AdsterraNativeBar from "@/components/ad/adsterra-native-bar";
 
 export default async function AdPage({
@@ -34,7 +34,7 @@ export default async function AdPage({
       {/* Ad container */}
       <div className="w-full max-w-xl">
         <AdsterraNativeBar />
-        <MobileBanner300 />
+        <HilltopadsMobileBanner300 />
       </div>
 
       {/* Footer note */}

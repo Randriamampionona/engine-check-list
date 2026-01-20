@@ -1,4 +1,4 @@
-import MobileBanner300 from "@/components/ad/mobile-banner-300";
+import HilltopadsMobileBanner300 from "@/components/ad/hilltop-mobile-banner-300";
 import AdsterraNativeBar from "@/components/ad/adsterra-native-bar";
 import SinglePost from "@/components/community/single-post";
 
@@ -14,7 +14,7 @@ export default async function PostPage({ params }: Props) {
       {/* Individual post */}
       <SinglePost postId={postId} />
       <AdsterraNativeBar />
-      <MobileBanner300 />
+      <HilltopadsMobileBanner300 />
     </main>
   );
 }

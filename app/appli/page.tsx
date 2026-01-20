@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Smartphone, Download } from "lucide-react";
 import DownloadAppButton from "@/components/download-app-button";
-import NativeBar from "@/components/ad/native-bar";
+import AdsterraNativeBar from "@/components/ad/adsterra-native-bar";
 import MobileBanner300 from "@/components/ad/mobile-banner-300";
 
 export default function AppliPage() {
@@ -41,7 +41,7 @@ export default function AppliPage() {
         </section>
       </div>
 
-      <NativeBar />
+      <AdsterraNativeBar />
       <MobileBanner300 />
     </main>
   );

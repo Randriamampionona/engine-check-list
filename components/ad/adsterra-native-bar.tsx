@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef } from "react";
 
-export default function NativeBar() {
+export default function AdsterraAdsterraNativeBar() {
   const adRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

@@ -1,6 +1,6 @@
 import { searchEngineFaults } from "@/action/get-search-engine-faults.action";
 import MobileBanner300 from "@/components/ad/mobile-banner-300";
-import NativeBar from "@/components/ad/native-bar";
+import AdsterraNativeBar from "@/components/ad/adsterra-native-bar";
 import Heading from "@/components/heading";
 import { Lang } from "@/typing";
 
@@ -91,7 +91,7 @@ export default async function ResultPage({ params, searchParams }: PageProps) {
         </div>
       )}
 
-      <NativeBar />
+      <AdsterraNativeBar />
       <MobileBanner300 />
     </main>
   );

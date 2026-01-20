@@ -1,5 +1,5 @@
 import MobileBanner300 from "@/components/ad/mobile-banner-300";
-import NativeBar from "@/components/ad/native-bar";
+import AdsterraNativeBar from "@/components/ad/adsterra-native-bar";
 
 export default async function AdPage({
   searchParams,
@@ -33,7 +33,7 @@ export default async function AdPage({
 
       {/* Ad container */}
       <div className="w-full max-w-xl">
-        <NativeBar />
+        <AdsterraNativeBar />
         <MobileBanner300 />
       </div>
 

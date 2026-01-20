@@ -10,6 +10,7 @@ import Script from "next/script";
 import { ClerkProvider } from "@clerk/nextjs";
 import FloatingAdCTA from "@/components/floating-ad-cta";
 import InPagePush from "@/components/ad/in-page-push";
+import AdsterraSocialBar from "@/components/ad/adsterra-social-bar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -53,16 +54,16 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
-        {" "}
-        {/* Added suppressHydrationWarning for ThemeProvider */}
+        {/* hilltopads meta tags */}
         <head>
           <meta
-            name="17d67f7b11184bf7b75fbc46af746693b82f75bb"
-            content="17d67f7b11184bf7b75fbc46af746693b82f75bb"
+            name="690c04c80ba48dc169be33e3f8c81b9a644bed39"
+            content="690c04c80ba48dc169be33e3f8c81b9a644bed39"
           />
           <meta name="referrer" content="no-referrer-when-downgrade" />
-          {/* Manifest is automatically linked if you created app/manifest.ts */}
         </head>
+        {/* hilltopads meta tags */}
+
         <body
           className={`${geistSans.variable} ${geistMono.variable} ok antialiased h-screen`}
         >
@@ -86,10 +87,8 @@ export default function RootLayout({
             <Footer />
             <FloatingAdCTA />
           </ThemeProvider>
-          <Script
-            src="https://pl28463302.effectivegatecpm.com/7c/54/98/7c5498b040473b02235b36a5e30dd1ad.js"
-            strategy="afterInteractive"
-          />
+
+          <AdsterraSocialBar />
           <InPagePush />
         </body>
       </html>

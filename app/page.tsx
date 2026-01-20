@@ -1,5 +1,5 @@
 import MobileBanner300 from "@/components/ad/mobile-banner-300";
-import NativeBar from "@/components/ad/native-bar";
+import AdsterraNativeBar from "@/components/ad/adsterra-native-bar";
 import Heading from "@/components/heading";
 import SearchForm from "@/components/search-form";
 import DownloadAppButton from "@/components/download-app-button";
@@ -26,7 +26,7 @@ export default function Home() {
         </div>
       </main>
 
-      <NativeBar />
+      <AdsterraNativeBar />
       <AadsAdaptive />
       <MobileBanner300 />
     </>

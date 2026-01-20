@@ -5,6 +5,7 @@ import SearchForm from "@/components/search-form";
 import DownloadAppButton from "@/components/download-app-button";
 import Link from "next/link";
 import DownloadAppLink from "@/components/download-app-link";
+import AadsAdaptive from "@/components/ad/aads-adaptive";
 
 export default function Home() {
   return (
@@ -26,6 +27,7 @@ export default function Home() {
       </main>
 
       <NativeBar />
+      <AadsAdaptive />
       <MobileBanner300 />
     </>
   );

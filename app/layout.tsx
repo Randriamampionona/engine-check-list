@@ -53,15 +53,18 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
-        {/* hilltopads meta tags */}
         <head>
+          {/* hilltopads meta tags */}
           <meta
             name="690c04c80ba48dc169be33e3f8c81b9a644bed39"
             content="690c04c80ba48dc169be33e3f8c81b9a644bed39"
           />
           <meta name="referrer" content="no-referrer-when-downgrade" />
+          {/* hilltopads meta tags */}
+          {/* coinzilla meta tags */}
+          <meta name="coinzilla" content="96a1884d8e971e735f81e3c96c0b8477" />
+          {/* coinzilla meta tags */}
         </head>
-        {/* hilltopads meta tags */}
 
         <body
           className={`${geistSans.variable} ${geistMono.variable} ok antialiased h-screen`}

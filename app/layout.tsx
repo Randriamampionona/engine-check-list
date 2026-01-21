@@ -61,9 +61,13 @@ export default function RootLayout({
           />
           <meta name="referrer" content="no-referrer-when-downgrade" />
           {/* hilltopads meta tags */}
-          {/* coinzilla meta tags */}
-          <meta name="coinzilla" content="96a1884d8e971e735f81e3c96c0b8477" />
-          {/* coinzilla meta tags */}
+
+          {/* bitmedia meta tags */}
+          <meta
+            name="bitmedia-site-verification"
+            content="6e8dd561b98ccae2e82669bd953a63db"
+          />
+          {/* bitmedia meta tags */}
         </head>
 
         <body

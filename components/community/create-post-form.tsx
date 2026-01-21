@@ -129,35 +129,35 @@ export default function CreatePostForm() {
 
           {/* IMAGE PREVIEW */}
           {file && file.type.startsWith("image/") ? (
-            <div className="relative group w-full max-w-xl">
+            <div className="relative w-full max-w-xl">
               <img
                 src={URL.createObjectURL(file)}
                 alt="Attachment preview"
-                className="h-64 w-full rounded-xl border object-cover
-          bg-muted shadow-sm"
+                className="h-64 w-full rounded-xl border object-cover bg-muted shadow-sm"
               />
 
-              {/* Overlay */}
-              <div
-                className="absolute inset-0 rounded-xl bg-black/40 opacity-0
-          group-hover:opacity-100 transition flex items-center justify-center gap-3"
-              >
+              {/* Floating Actions */}
+              <div className="absolute top-2 right-2 flex gap-2">
                 <button
                   type="button"
                   onClick={() => fileInputRef.current?.click()}
-                  className="text-background rounded-full bg-white/90 px-4 py-2 text-sm font-medium
-            hover:bg-white transition"
+                  className="inline-flex items-center justify-center rounded-full
+          bg-white/90 backdrop-blur border shadow-sm
+          h-9 w-9 text-gray-700 hover:bg-white transition"
+                  aria-label="Replace image"
                 >
-                  Replace
+                  <Paperclip className="h-4 w-4" />
                 </button>
 
                 <button
                   type="button"
                   onClick={() => setFile(null)}
-                  className="rounded-full bg-red-500 px-4 py-2 text-sm font-medium
-            text-white hover:bg-red-600 transition"
+                  className="inline-flex items-center justify-center rounded-full
+          bg-white/90 backdrop-blur border shadow-sm
+          h-9 w-9 text-red-500 hover:bg-red-50 transition"
+                  aria-label="Remove image"
                 >
-                  Remove
+                  <X className="h-4 w-4" />
                 </button>
               </div>
             </div>
@@ -234,8 +234,8 @@ export default function CreatePostForm() {
             {isUploading
               ? "Uploading image..."
               : isPending
-              ? "Publishing..."
-              : "Publish"}
+                ? "Publishing..."
+                : "Publish"}
           </button>
         </div>
       </form>

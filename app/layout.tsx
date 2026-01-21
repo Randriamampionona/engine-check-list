@@ -6,7 +6,6 @@ import Navbar from "@/components/navbar";
 import { Suspense } from "react";
 import Footer from "@/components/footer";
 import { Loader2 } from "lucide-react";
-import Script from "next/script";
 import { ClerkProvider } from "@clerk/nextjs";
 import FloatingAdCTA from "@/components/floating-ad-cta";
 import HilltopadsInPagePush from "@/components/ad/hilltop-in-page-push";

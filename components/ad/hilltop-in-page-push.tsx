@@ -1,29 +1,24 @@
 "use client";
-import { useEffect } from "react";
+import Script from "next/script";
 
-export default function HilltopadsHilltopadsInPagePush() {
-  useEffect(() => {
-    const script = document.createElement("script");
+export default function HilltopadsInPagePush() {
+  // Your unique ID from the HilltopAds snippet
+  const adId = "hilltop-inpage-push";
 
-    // Updated URL from your new MultiTag In-page Push code
-    script.src =
-      "//excitedzone.com/bnXIV.szdMGil/0cYWWFco/Keum/9GuaZ/U/lJk/PiT/YA3cNWT/I/3/OWTYg_tNNCj/cx1GMkjGc_5WOMQn";
-    script.async = true;
-    script.referrerPolicy = "no-referrer-when-downgrade";
-
-    // HilltopAds settings object
-    (script as any).settings = {};
-
-    // Append to the body to ensure it doesn't block the initial render
-    document.body.appendChild(script);
-
-    return () => {
-      // Cleanup: remove the script if the component unmounts to prevent memory leaks
-      if (document.body.contains(script)) {
-        document.body.removeChild(script);
-      }
-    };
-  }, []);
-
-  return null; // This component handles the background script and renders no UI
+  return (
+    <Script
+      id={adId}
+      /* Using the NEW source URL from your updated snippet */
+      src="//excitedzone.com/bAXoVis.d/G/lf0/YqWScX/HeEmt9wuwZOUJllkiPsTNYn3rNHT/IM3pO/TCg_t/NwjKck1kM/j/cO5kOnQc"
+      strategy="afterInteractive"
+      referrerPolicy="no-referrer-when-downgrade"
+      onReady={() => {
+        /* HilltopAds in-page push scripts are self-executing. 
+           onReady ensures that every time you navigate back to a page 
+           with this component, Next.js checks if the script is active.
+        */
+        console.log("HilltopAds In-Page Push Ready");
+      }}
+    />
+  );
 }

@@ -68,6 +68,13 @@ export default function RootLayout({
             content="6e8dd561b98ccae2e82669bd953a63db"
           />
           {/* bitmedia meta tags */}
+
+          {/* kadam meta tags */}
+          <meta
+            name="kadam-verification"
+            content="kadame315f0298f9ee6d244fe01f05a4b9179"
+          />
+          {/* kadam meta tags */}
         </head>
 
         <body
